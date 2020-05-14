@@ -1,14 +1,12 @@
 package com.facturacion.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
@@ -20,9 +18,6 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer idCliente;
-	
-	@OneToMany(mappedBy="cliente")
-	private List<Factura> factura;
 	
 	@Size(min=3, message= "Nombre debe tener mínimo 3 caracteres")
 	@Column(name="nombre", nullable=false, length=30)
@@ -46,8 +41,6 @@ public class Cliente {
 	@Email
 	@Column(name="email", nullable=false, length=55)
 	private String email;
-	
-	
 
 	public Integer getIdCliente() {
 		return idCliente;
@@ -55,14 +48,6 @@ public class Cliente {
 
 	public void setIdCliente(Integer idCliente) {
 		this.idCliente = idCliente;
-	}
-
-	public List<Factura> getFactura() {
-		return factura;
-	}
-
-	public void setFactura(List<Factura> factura) {
-		this.factura = factura;
 	}
 
 	public String getNombre() {
@@ -111,8 +96,7 @@ public class Cliente {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	
+	}	
 	
 
 }

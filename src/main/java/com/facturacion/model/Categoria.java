@@ -1,14 +1,10 @@
 package com.facturacion.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
@@ -27,9 +23,6 @@ public class Categoria {
 	@Size(min=10, message= "Descripción debe tener mínimo 10 caracteres")
 	@Column(name="descripcion", nullable=false, length=30)
 	private String descripcion;
-	
-	@OneToMany(mappedBy="categoria", cascade = {CascadeType.ALL}, orphanRemoval = true)
-	private List<Producto> producto;
 
 	public String getNombre() {
 		return nombre;

@@ -2,9 +2,12 @@ package com.facturacion.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 
@@ -21,6 +24,10 @@ public class Detalle {
 	
 	@Id
 	private Producto producto;
+	
+	@ManyToOne
+	@JoinColumn(name="id_producto", nullable=false, foreignKey = @ForeignKey(name = "FK_detalle_producto"))
+	private Detalle detalle;
 	
 	@Min(1)
 	@Column(name="cantidad", nullable=false)

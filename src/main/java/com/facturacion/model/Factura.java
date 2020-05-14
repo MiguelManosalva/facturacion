@@ -1,7 +1,6 @@
 package com.facturacion.model;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -30,12 +28,17 @@ public class Factura {
 	@ManyToOne
 	@JoinColumn(name="num_pago", nullable=false, foreignKey = @ForeignKey(name = "FK_factura_modo_pago"))
 	private ModoPago modoPago;
-
-	@OneToMany(mappedBy="factura")
-	private List<Detalle> detalle;
 	
 	@Column(name = "fecha", nullable = false)
 	private Date fecha;
+
+	public Integer getNumFactura() {
+		return numFactura;
+	}
+
+	public void setNumFactura(Integer numFactura) {
+		this.numFactura = numFactura;
+	}
 
 	public Cliente getCliente() {
 		return cliente;
@@ -59,8 +62,6 @@ public class Factura {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
-	}
-
-	
+	}	
 	
 }

@@ -1,7 +1,5 @@
 package com.facturacion.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
@@ -10,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
@@ -26,9 +23,6 @@ public class Producto {
 	@ManyToOne
 	@JoinColumn(name="id_categoria", nullable=false, foreignKey = @ForeignKey(name = "FK_producto_categoria"))
 	private Categoria categoria;
-	
-	@OneToMany(mappedBy="producto")
-	private List<Detalle> detalle;
 	
 	@Size(min=3, message= "Nombre debe tener mínimo 3 caracteres")
 	@Column(name="nombre", nullable=false, length=30)
