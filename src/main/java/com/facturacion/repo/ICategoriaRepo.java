@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.facturacion.model.Categoria;
 
-public class ICategoriaRepo extends JpaRepository<Categoria, Integer> {
+public interface ICategoriaRepo extends JpaRepository<Categoria, Integer> {
 	
 	@Modifying 
 	@Query(value = "INSERT INTO categoria(id_categoria, nombre, descripcion) VALUES (:idCategoria, :nombre, :descripcion)", nativeQuery=true)

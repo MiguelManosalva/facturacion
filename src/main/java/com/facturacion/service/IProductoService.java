@@ -2,6 +2,6 @@ package com.facturacion.service;
 
 import com.facturacion.model.Producto;
 
-public class IProductoService extends ICRUD<Producto> {
+public interface IProductoService extends ICRUD<Producto> {
 
 }

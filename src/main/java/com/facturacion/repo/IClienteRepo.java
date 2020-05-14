@@ -1,5 +1,7 @@
 package com.facturacion.repo;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -7,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.facturacion.model.Cliente;
 
-public class IClienteRepo extends JpaRepository<Cliente, Integer> {
+public interface IClienteRepo extends JpaRepository<Cliente, Integer> {
 	
 	@Modifying 
 	@Query(value = "INSERT INTO cliente(id_cliente, nombre, apellido, direccion, fecha_nacimiento, telefono, email) VALUES (:idCliente, :nombre, :apellido, :direccion, :fechaNacimiento, :telefono, :email)", nativeQuery=true)

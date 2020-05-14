@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.facturacion.model.Detalle;
 
-public class IDetalleRepo extends JpaRepository<Detalle, Integer> {
+public interface IDetalleRepo extends JpaRepository<Detalle, Integer> {
 	
 	@Modifying 
 	@Query(value = "INSERT INTO detalle(num_detalle, id_factura, id_producto, cantidad, precio) VALUES (:numDetalle, :idFactura, idProducto, :cantidad, :precio)", nativeQuery=true)

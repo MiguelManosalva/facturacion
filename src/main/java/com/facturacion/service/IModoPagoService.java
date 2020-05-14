@@ -1,5 +1,5 @@
 package com.facturacion.service;
 
-public class IModoPagoService {
+public interface IModoPagoService {
 
 }

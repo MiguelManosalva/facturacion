@@ -1,5 +1,7 @@
 package com.facturacion.service;
 
-public class ICategoriaService {
+import com.facturacion.model.Categoria;
+
+public interface ICategoriaService extends ICRUD<Categoria> {
 
 }

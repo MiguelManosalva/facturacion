@@ -5,12 +5,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.facturacion.model.MetodoPago;
+import com.facturacion.model.ModoPago;
 
-public class IModoPagoRepo extends JpaRepository<MetodoPago, Integer> {
+public interface IModoPagoRepo extends JpaRepository<ModoPago, Integer> {
 	
 	@Modifying 
-	@Query(value = "INSERT INTO metodo_pago(num_pago, nombre, otros_detalles) VALUES (:numFactura, :nombre, :otros_detalles)", nativeQuery=true)
+	@Query(value = "INSERT INTO modo_pago(num_pago, nombre, otros_detalles) VALUES (:numFactura, :nombre, :otros_detalles)", nativeQuery=true)
 	Integer registrar(@Param("numPago") Integer numPago, @Param("nombre") String nombre, @Param("otrosDetalles") String otrosDetalles);
 
 }

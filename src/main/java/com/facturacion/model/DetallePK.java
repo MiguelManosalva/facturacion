@@ -19,6 +19,24 @@ public class DetallePK implements Serializable {
 	@JoinColumn(name="id_producto", nullable=false)
 	private Producto producto;
 
+	
+	
+	public Factura getFactura() {
+		return factura;
+	}
+
+	public void setFactura(Factura factura) {
+		this.factura = factura;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
