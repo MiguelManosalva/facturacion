@@ -2,9 +2,11 @@ package com.facturacion.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+@Embeddable
 public class DetallePK implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -16,7 +18,7 @@ public class DetallePK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="id_producto", nullable=false)
 	private Producto producto;
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -25,7 +27,6 @@ public class DetallePK implements Serializable {
 		result = prime * result + ((producto == null) ? 0 : producto.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -37,7 +38,7 @@ public class DetallePK implements Serializable {
 			return false;
 		DetallePK other = (DetallePK) obj;
 		if (factura == null) {
-			if (other.factura!= null)
+			if (other.factura != null)
 				return false;
 		} else if (!factura.equals(other.factura))
 			return false;
@@ -48,6 +49,8 @@ public class DetallePK implements Serializable {
 			return false;
 		return true;
 	}
+	
+
 
 
 }
