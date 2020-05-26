@@ -1,5 +1,7 @@
 package com.facturacion.service;
 
-public interface IModoPagoService {
+import com.facturacion.model.ModoPago;
+
+public interface IModoPagoService extends ICRUD<ModoPago> {
 
 }

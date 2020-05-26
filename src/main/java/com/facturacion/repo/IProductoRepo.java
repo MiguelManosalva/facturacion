@@ -5,9 +5,9 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.facturacion.model.Factura;
+import com.facturacion.model.Producto;
 
-public interface IProductoRepo extends JpaRepository<Factura, Integer> {
+public interface IProductoRepo extends JpaRepository<Producto, Integer> {
 	
 	@Modifying 
 	@Query(value = "INSERT INTO factura(id_producto, id_categoria, nombre, precio, stock) VALUES (:idProducto, :idCategoria, :nombre, :precio, :stock)", nativeQuery=true)
