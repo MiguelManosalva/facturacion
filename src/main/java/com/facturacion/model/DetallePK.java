@@ -3,6 +3,7 @@ package com.facturacion.model;
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -11,15 +12,13 @@ public class DetallePK implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_factura", nullable = false)
 	private Factura factura;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_producto", nullable=false)
 	private Producto producto;
-
-	
 	
 	public Factura getFactura() {
 		return factura;

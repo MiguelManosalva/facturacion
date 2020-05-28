@@ -2,6 +2,7 @@ package com.facturacion.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Producto {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer id_producto;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_categoria", nullable=false, foreignKey = @ForeignKey(name = "FK_producto_categoria"))
 	private Categoria categoria;
 	

@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,11 +22,11 @@ public class Factura {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Integer numFactura;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="id_cliente", nullable=false, foreignKey = @ForeignKey(name = "FK_factura_cliente"))
 	private Cliente cliente;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="num_pago", nullable=false, foreignKey = @ForeignKey(name = "FK_factura_modo_pago"))
 	private ModoPago modoPago;
 	
